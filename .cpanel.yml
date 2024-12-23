@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/sqewmdaa/metromirchi.com/
+    - /bin/cp * $DEPLOYPATH
