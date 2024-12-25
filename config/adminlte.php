@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Fair Searches',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -48,7 +48,7 @@ return [
     */
 
     'google_fonts' => [
-        'allowed' => true,
+    'allowed' => true,
     ],
 
     /*
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Fair Searches</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -87,7 +87,7 @@ return [
         'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'alt' => 'Fair Searches',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -114,7 +114,7 @@ return [
         'mode' => 'fullscreen',
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'alt' => 'Fair Searches',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -257,7 +257,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -321,76 +321,71 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
+            'text' => 'Dashboard',
+            'url' => 'admin/dashboard',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+            'text' => 'Listing',
+            'url' => 'admin/listing',
+            'icon' => 'far fa-fw fa-building',           
+            'label_color' => 'success',
+        ],    
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'text' => 'Leads',
+            'icon' => 'fas fa-fw fa-crosshairs',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Fresh',
+                    'url' => 'admin/leads/fresh',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Comverted',
+                    'url' => 'admin/leads/complete',                  
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'free',
+                    'url' => 'admin/leads/action',
+                ],
+            ],
+        ],        
+        [
+            'text' => 'Users',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Paid',
+                    'url' => 'admin/users/paid',
+                ],
+                [
+                    'text' => 'Expired',
+                    'url' => 'admin/users/expired',                  
+                ],
+                [
+                    'text' => 'free',
+                    'url' => 'admin/users/free',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        ['header' => 'Accounting'],
         [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            'text' => 'Order',
+            'url' => 'admin/order',
+            'icon' => 'fa fa-shopping-cart',           
+            'label_color' => 'success',
+        ],  
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url' => 'admin/setting',
+            'icon' => 'fas fa-fw fa-cogs',
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            'text' => 'change_password',
+            'url' => 'admin/change-password',
+            'icon' => 'fas fa-fw fa-lock',
         ],
     ],
 
