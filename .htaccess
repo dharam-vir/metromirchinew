@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect non-www to www
+    RewriteCond %{HTTP_HOST} ^metromirchi\.com [NC]
+    RewriteRule ^(.*)$ https://www.metromirchi.com/$1 [L,R=301]
+    
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+ # Redirect requests for the 'public' directory to the root
+    RewriteCond %{REQUEST_URI} ^/public/
+    RewriteRule ^public/(.*)$ /$1 [R=301,L]
+    
+    # Condition to check if the requested file is a directory or a file
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Rewrite rule to send requests for files with extensions to the 'public' directory
+    RewriteCond %{REQUEST_URI} \.\w+$ [NC]
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # If the file or directory doesn't exist, redirect to index.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
